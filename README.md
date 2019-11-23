@@ -66,7 +66,7 @@ python copy.py [config_file]
 
 * 在任意目录下创建一个配置文件（文件名任意，例如 `copy_config.json`）；
 * 将配置文件的 `"input_dir"` 字段设为 `Illustrator` 的导出目录；
-* 将配置文件的 `"output_dir"` 字段设为模块的 `res` 目录；
+* 将配置文件的 `"output_dir"` 字段设为 `Android` 模块的 `res` 目录；
 * 根据 `Illustrator` 的导出设置编写 `"dir_maps"` 字段。根据上图中的导出设置，`"dir_maps"` 字段的值应该为：
 
 ```json
