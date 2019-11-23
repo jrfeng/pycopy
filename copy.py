@@ -6,7 +6,7 @@ import shutil
 
 def read_config(config_file):
     if not os.path.exists(config_file):
-        print("config file not exists.")
+        print("[error]not find config file.")
         return
 
     with open(config_file, encoding="utf-8") as config:
@@ -19,20 +19,25 @@ def check_config(config):
             return False
 
         if not os.path.exists(config["input_dir"]):
-            print("input_dir not exists.")
+            print("[error]input_dir not exists.")
             return False
 
         if not os.path.exists(config["output_dir"]):
-            print("output_dir not exists.")
+            print("[error]output_dir not exists.")
             return False
 
         dir_maps = config["dir_maps"]
+        if not isinstance(dir_maps, dict):
+            print("[error]dir_maps not a json object.")
+            return False
+
         input_dir = config["input_dir"]
         for key, _ in dir_maps.items():
             if not os.path.exists(input_dir + "/" + key):
-                print(key, "not exists.")
+                print("[error]", key, "not exists.")
                 return False
     except json.KeyError as err:
+        print("[error]config file format error.")
         return False
 
     return True
@@ -66,7 +71,6 @@ def main():
     dir_maps = config["dir_maps"]
 
     for key, value in dir_maps.items():
-        print("\n")
         check_or_create_dir(output_dir, value)
         print("[", key, " -> ", value, "]", sep="")
         copy_all_files(input_dir + "/" + key, output_dir + "/" + value)
