@@ -38,7 +38,7 @@ python copy.py [config_file]
         "0.5x": "mipmap-mdpi",
         "0.75x": "mipmap-hdpi",
         "1x": "mipmap-xhdpi",
-        "1.75x": "mipmap-xxhdpi",
+        "1.5x": "mipmap-xxhdpi",
         "2x": "mipmap-xxxhdpi"
     }
 }
@@ -72,7 +72,7 @@ python copy.py [config_file]
     "0.5x": "mipmap-mdpi",
     "0.75x": "mipmap-hdpi",
     "1x": "mipmap-xhdpi",
-    "1.75x": "mipmap-xxhdpi",
+    "1.5x": "mipmap-xxhdpi",
     "2x": "mipmap-xxxhdpi"
 }
 ```
