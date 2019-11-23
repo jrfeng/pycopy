@@ -36,7 +36,7 @@ def check_config(config):
             if not os.path.exists(input_dir + "/" + key):
                 print("[error]", key, "not exists.")
                 return False
-    except json.KeyError as err:
+    except KeyError:
         print("[error]config file format error.")
         return False
 
