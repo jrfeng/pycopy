@@ -1,0 +1,3 @@
+*.html
+./.mypy_cache
+./test
