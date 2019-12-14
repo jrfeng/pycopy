@@ -74,13 +74,6 @@ def print_copy_message(file_name: str, output_dir: str):
     print(message)
 
 
-def begin_copy():
-    for key, value in dir_maps.items():
-        check_or_create_dir(output_dir, value)
-        print("[", key, " -> ", value, "]", sep="")
-        copy_all_files(input_dir + "/" + key, output_dir + "/" + value)
-
-
 def main():
     config_file = "copy_config.json"
     if len(sys.argv) > 1:
@@ -99,8 +92,12 @@ def main():
     print("Output Dir:", output_dir)
 
     result = input("\nContinue?(Y/N):")
+
     if result.lower() == "y" :
-        begin_copy()
+        for key, value in dir_maps.items():
+            check_or_create_dir(output_dir, value)
+            print("[", key, " -> ", value, "]", sep="")
+            copy_all_files(input_dir + "/" + key, output_dir + "/" + value)
 
     input("\nPress any key to exit.")
 
